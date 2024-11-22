@@ -1,0 +1,185 @@
+[gd_scene load_steps=46 format=2]
+
+[ext_resource path="res://script_inimigo.gd" type="Script" id=1]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Idle (6).png" type="Texture" id=2]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Idle (7).png" type="Texture" id=3]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Idle (13).png" type="Texture" id=4]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Walk (3).png" type="Texture" id=5]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Walk (8).png" type="Texture" id=6]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Idle (8).png" type="Texture" id=7]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Idle (11).png" type="Texture" id=8]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Walk (9).png" type="Texture" id=9]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Dead (3).png" type="Texture" id=10]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Idle (10).png" type="Texture" id=11]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Walk (2).png" type="Texture" id=12]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Walk (5).png" type="Texture" id=13]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Dead (4).png" type="Texture" id=14]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Idle (9).png" type="Texture" id=15]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Idle (12).png" type="Texture" id=16]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Walk (6).png" type="Texture" id=17]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Walk (7).png" type="Texture" id=18]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Walk (10).png" type="Texture" id=19]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Dead (1).png" type="Texture" id=20]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Dead (5).png" type="Texture" id=21]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Dead (7).png" type="Texture" id=22]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Dead (6).png" type="Texture" id=23]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Dead (8).png" type="Texture" id=24]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Dead (9).png" type="Texture" id=25]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Idle (14).png" type="Texture" id=26]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Dead (10).png" type="Texture" id=27]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Dead (11).png" type="Texture" id=28]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Dead (12).png" type="Texture" id=29]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Idle (15).png" type="Texture" id=30]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Walk (1).png" type="Texture" id=31]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Walk (4).png" type="Texture" id=32]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Dead (2).png" type="Texture" id=33]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Idle (4).png" type="Texture" id=34]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Idle (5).png" type="Texture" id=35]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Idle (1).png" type="Texture" id=36]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Idle (2).png" type="Texture" id=37]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Idle (3).png" type="Texture" id=38]
+[ext_resource path="res://Musicas&Sons/Call of Duty Zombie 2 Sound Effect.wav" type="AudioStream" id=39]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27.5, 46.5 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "andando"
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 31 ), ExtResource( 12 ), ExtResource( 5 ), ExtResource( 32 ), ExtResource( 13 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 19 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "morrendo"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 20 ), ExtResource( 33 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "parado"
+length = 1.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 16 ), ExtResource( 4 ), ExtResource( 26 ), ExtResource( 30 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 27.25, 46.25 )
+
+[node name="Inimigo" type="Node2D"]
+
+[node name="Inimigo" type="KinematicBody2D" parent="."]
+collision_layer = 4
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Inimigo"]
+position = Vector2( 467, 336 )
+scale = Vector2( 0.207, 0.207 )
+texture = ExtResource( 31 )
+region_rect = Rect2( 73, 50, 282, 457 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inimigo"]
+position = Vector2( 465.5, 340.5 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Inimigo"]
+autoplay = "andando"
+anims/RESET = SubResource( 2 )
+anims/andando = SubResource( 3 )
+anims/morrendo = SubResource( 4 )
+anims/parado = SubResource( 5 )
+
+[node name="RayCast2DEsq" type="RayCast2D" parent="Inimigo"]
+position = Vector2( 435, 346 )
+enabled = true
+cast_to = Vector2( 0, 45 )
+
+[node name="RayCast2DDir" type="RayCast2D" parent="Inimigo"]
+position = Vector2( 497, 346 )
+enabled = true
+cast_to = Vector2( 0, 45 )
+
+[node name="Area2D" type="Area2D" parent="Inimigo"]
+position = Vector2( 466, 338 )
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inimigo/Area2D"]
+position = Vector2( 0, 3 )
+shape = SubResource( 6 )
+
+[node name="AudioMorrendo" type="AudioStreamPlayer" parent="Inimigo"]
+stream = ExtResource( 39 )
+volume_db = -10.0
+
+[connection signal="animation_finished" from="Inimigo/AnimationPlayer" to="Inimigo" method="kill"]
+[connection signal="body_entered" from="Inimigo/Area2D" to="Inimigo" method="causar_dano"]
