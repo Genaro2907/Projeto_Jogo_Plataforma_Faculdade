@@ -1,9 +1,11 @@
 extends KinematicBody2D
 
-var velocidade = 100
+export var velocidade = 100
 var gravidade  = 20
 var direita    = true
 var mov        = Vector2.ZERO
+export var qtd_vidas  = 0
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -41,4 +43,11 @@ func causar_dano(body):
 func kill(anim_name):
 	if (anim_name=="morrendo"):
 		get_parent().queue_free()
+
+func perder_vida():
+	qtd_vidas-=1
+	if (qtd_vidas<1):
+		velocidade = 0
+		$AnimationPlayer.play("morrendo")
+		$AudioMorrendo.play()
 

@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Musicas&Sons/Música triste do Naruto.wav" type="AudioStream" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -226.0
+margin_top = -86.0
+margin_right = 1310.0
+margin_bottom = 760.0
+color = Color( 0.0235294, 0.0235294, 0.0235294, 1 )
+
+[node name="Label" type="Label" parent="ColorRect"]
+margin_left = 291.0
+margin_top = 248.0
+margin_right = 898.0
+margin_bottom = 508.0
+rect_scale = Vector2( 2, 2 )
+text = "                    Jogo para o projeto de Sistemas Interativo
+                                Criado por Gabriel Genaro
+                                       Obrigado por Jogar!"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true

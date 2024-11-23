@@ -17,21 +17,9 @@ func _process(delta):
 
 func destruir_inimigo(body):
 	if(body.name=="Inimigo"):
-		#body.get_parent().queue_free()
-		body.velocidade = 0
-		body.get_node("AnimationPlayer").play("morrendo")
-		body.get_node("AudioMorrendo").play()
-		
-		
+		body.perder_vida()
 		# comando para desativar o collision do inimigo via codigo
 		# body.get_node("Area2D/CollisionShape2D").set_deferred("disabled",true)
 		
 		
 	get_parent().queue_free()
-
-
-
-
-
-
-

@@ -140,6 +140,7 @@ extents = Vector2( 27.25, 46.25 )
 [node name="Inimigo" type="KinematicBody2D" parent="."]
 collision_layer = 4
 script = ExtResource( 1 )
+qtd_vidas = 1
 
 [node name="Sprite" type="Sprite" parent="Inimigo"]
 position = Vector2( 467, 336 )
