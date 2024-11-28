@@ -9,9 +9,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (direcao==-1):
-		$Sprite.flip_h = false
-	elif (direcao==1):
 		$Sprite.flip_h = true
+		$Sprite.flip_v = true
+	elif (direcao==1):
+		$Sprite.flip_h = false
+		$Sprite.flip_v = false
 
 	get_parent().global_position.x += (velocidade * direcao)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://script_inimigo.gd" type="Script" id=1]
 [ext_resource path="res://Imagens/zombiefiles/png/male/Idle (6).png" type="Texture" id=2]
@@ -39,6 +39,14 @@
 [ext_resource path="res://Imagens/zombiefiles/png/male/Idle (2).png" type="Texture" id=37]
 [ext_resource path="res://Imagens/zombiefiles/png/male/Idle (3).png" type="Texture" id=38]
 [ext_resource path="res://Musicas&Sons/Call of Duty Zombie 2 Sound Effect.wav" type="AudioStream" id=39]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Attack (3).png" type="Texture" id=40]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Attack (2).png" type="Texture" id=41]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Attack (7).png" type="Texture" id=42]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Attack (4).png" type="Texture" id=43]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Attack (1).png" type="Texture" id=44]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Attack (5).png" type="Texture" id=45]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Attack (8).png" type="Texture" id=46]
+[ext_resource path="res://Imagens/zombiefiles/png/male/Attack (6).png" type="Texture" id=47]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.5, 46.5 )
@@ -57,6 +65,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 41 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "andando"
@@ -73,6 +93,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ ExtResource( 31 ), ExtResource( 12 ), ExtResource( 5 ), ExtResource( 32 ), ExtResource( 13 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 19 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "atacando"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 44 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 43 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 42 ), ExtResource( 46 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -141,12 +177,11 @@ extents = Vector2( 27.25, 46.25 )
 collision_layer = 4
 script = ExtResource( 1 )
 velocidade = 300
-qtd_vidas = 5
 
 [node name="Sprite" type="Sprite" parent="Inimigo"]
 position = Vector2( 467, 336 )
 scale = Vector2( 0.207, 0.207 )
-texture = ExtResource( 31 )
+texture = ExtResource( 41 )
 region_rect = Rect2( 73, 50, 282, 457 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inimigo"]
@@ -157,6 +192,7 @@ shape = SubResource( 1 )
 autoplay = "andando"
 anims/RESET = SubResource( 2 )
 anims/andando = SubResource( 3 )
+anims/atacando = SubResource( 7 )
 anims/morrendo = SubResource( 4 )
 anims/parado = SubResource( 5 )
 
@@ -169,6 +205,8 @@ cast_to = Vector2( 0, 45 )
 position = Vector2( 497, 346 )
 enabled = true
 cast_to = Vector2( 0, 45 )
+
+[node name="TimerAtaque" type="Timer" parent="Inimigo"]
 
 [node name="Area2D" type="Area2D" parent="Inimigo"]
 position = Vector2( 466, 338 )
@@ -184,4 +222,5 @@ stream = ExtResource( 39 )
 volume_db = -10.0
 
 [connection signal="animation_finished" from="Inimigo/AnimationPlayer" to="Inimigo" method="kill"]
+[connection signal="timeout" from="Inimigo/TimerAtaque" to="Inimigo" method="_on_TimerAtaque_timeout"]
 [connection signal="body_entered" from="Inimigo/Area2D" to="Inimigo" method="causar_dano"]
